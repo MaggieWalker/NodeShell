@@ -1,14 +1,9 @@
-
-
-process.stdout.write('prompt > ');
-
-process.stdin.on('data', (data) => {
+process.stdin.on('data', function pwd(data){
   const cmd = data.toString().trim();
 
   if(cmd === 'pwd') {
-    process.stdout.write(`${process.cwd()}`);
+    process.stdout.write(`${process.cwd()} \nprompt > `);
   }
-
   else {
     process.stdout.write('You typed: ' + cmd);
     process.stdout.write('\nprompt > ');
@@ -16,4 +11,4 @@ process.stdin.on('data', (data) => {
 });
 
 
-
+module.exports = { pwd }
